@@ -6,7 +6,8 @@ class Stock extends CI_Controller
 
     public function index()
     {
-        $this->load->view('layout/header');
+        $data['judul'] = 'Stock';
+        $this->load->view('layout/header', $data);
         $this->load->view('stock/stock_v');
         $this->load->view('layout/footer');
     }

@@ -6,7 +6,8 @@ class Master extends CI_Controller
 
     public function index()
     {
-        $this->load->view('layout/header');
+        $data['judul'] = 'Master';
+        $this->load->view('layout/header', $data);
         $this->load->view('master/master_v');
         $this->load->view('layout/footer');
     }
