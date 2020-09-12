@@ -66,72 +66,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Nuget</td>
-                                    <td>2</td>
-                                    <td>50.000</td>
-                                    <td>55.000</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>Makanan</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Nuget</td>
-                                    <td>2</td>
-                                    <td>50.000</td>
-                                    <td>55.000</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>Makanan</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Nuget</td>
-                                    <td>2</td>
-                                    <td>50.000</td>
-                                    <td>55.000</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>Makanan</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Nuget</td>
-                                    <td>2</td>
-                                    <td>50.000</td>
-                                    <td>55.000</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>Makanan</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Nuget</td>
-                                    <td>2</td>
-                                    <td>50.000</td>
-                                    <td>55.000</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>Makanan</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Nuget</td>
-                                    <td>2</td>
-                                    <td>50.000</td>
-                                    <td>55.000</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>Makanan</td>
-                                    <td>10</td>
-                                </tr>
+                                <?php foreach ($tb_barang as $barang) : ?>
+                                    <tr>
+                                        <td><?php echo $barang['barcode']; ?></td>
+                                        <td><?php echo $barang['nama_barang']; ?></td>
+                                        <td><?php echo $barang['stock_awal']; ?></td>
+                                        <td><?php echo $barang['harga_beli']; ?></td>
+                                        <td><?php echo $barang['harga_jual']; ?></td>
+                                        <td>10</td>
+                                        <td>5</td>
+                                        <td>Makanan</td>
+                                        <td>10</td>
+                                    </tr>
+                                <?php endforeach; ?>
 
                             </tbody>
                         </table>
