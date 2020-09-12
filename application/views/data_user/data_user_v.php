@@ -38,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col justify-content-end">
-                    <button type="button" class="btn btn-primary btn-brng-1">Simpan</button>
+                    <button type="button" class="btn btn-primary btn-brng-1">Save</button>
                     <a href="<?php echo base_url('master') ?>">
                         <button type="button" class="btn btn-danger btn-brng-2">Exit</button>
                     </a>
