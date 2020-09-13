@@ -330,8 +330,12 @@
 	height: 615px;
 }
 
-.stock-barangg {
+/* .stock-barangg {
 	height: 614px;
+	overflow: scroll;
+} */
+.stock-barangg1 {
+	height: 550px;
 	overflow: scroll;
 }
 

@@ -14,6 +14,9 @@ class Data_barang extends CI_Controller
     {
         $data['judul'] = 'Data Barang';
         $data['tb_barang'] = $this->Data_barang_model->getAlltb_barang();
+        if ($this->input->post('keyword')) {
+            $data['tb_barang'] = $this->Data_barang_model->cari_data_barang();
+        }
         $this->load->view('layout/header', $data);
         $this->load->view('data_barang/data_barang_v', $data);
         $this->load->view('layout/footer');
