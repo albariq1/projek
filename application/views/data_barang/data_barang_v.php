@@ -73,6 +73,7 @@
                          <button type="button" class="btn btn-danger btn-brng-2 float-right">Exit</button>
                      </a>
                      <button type="submit" class="btn btn-primary btn-brng-1 float-right" name="tambah" id="tambah">Simpan</button>
+                     </a>
                  </div>
              </div>
          </form>
@@ -112,6 +113,9 @@
                                                  <td>5</td>
                                                  <td>Makanan</td>
                                                  <td>10</td>
+                                                 <td><a href="<?php echo base_url(); ?>data_barang/hapus/<?php echo $barang['id'] ?>" class="badge badge-danger" onclick="return confirm('yakin?')">hapus</a>
+                                                     <a href="">ndao</a>
+                                                 </td>
                                              </tr>
                                          <?php endforeach; ?>
 

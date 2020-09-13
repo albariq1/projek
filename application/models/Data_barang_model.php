@@ -20,4 +20,11 @@ class Data_barang_model extends CI_Model
 
         $this->db->insert('tb_barang', $data);
     }
+
+    public function hapus_data_barang($id)
+    {
+
+        $this->db->where('id', $id);
+        $this->db->delete('tb_barang');
+    }
 }
