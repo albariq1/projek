@@ -10,6 +10,10 @@
     -webkit-filter: blur(8px); */
 }
 
+.bbtn_submit {
+	width: 200px;
+}
+
 .toko {
 	margin-top: 100px;
 	color: #00b2ff;
@@ -323,11 +327,11 @@
 .Data-barang1 {
 	background-color: #11999E;
 	width: auto;
-	height: auto;
+	height: 615px;
 }
 
 .stock-barangg {
-	height: 320px;
+	height: 614px;
 	overflow: scroll;
 }
 
