@@ -33,15 +33,18 @@
                             <h1 id="login">
                                 LOGIN
                             </h1><br>
-                            <form action="<?php echo base_url('dashboard') ?>" style="max-width:500px;margin:auto" method="POST">
+                            <?php echo $this->session->flashdata('message'); ?>
+                            <form action="<?php echo base_url('Login') ?>" style="max-width:500px;margin:auto" method="POST">
                                 <div class="input-container">
                                     <i class="fa fa-user icon"></i>
-                                    <input class="input-field" type="text" placeholder="Username" name="password">
+                                    <input class="input-field" type="text" placeholder="Username" name="username" id="username">
                                 </div>
+                                <?php echo form_error('username', '<small class="text-danger">', '</small>'); ?>
                                 <div class="input-container">
                                     <i class="fa fa-key icon"></i>
-                                    <input class="input-field" type="password" placeholder="Password" name="password">
+                                    <input class="input-field" type="password" placeholder="Password" name="password" id="password">
                                 </div>
+                                <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>
 
                                 <p>
                                     <button type="submit" class="btn btn-primary " style="width: 200px;">Submit</button>

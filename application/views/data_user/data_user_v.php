@@ -6,44 +6,56 @@
                     <h1>DATA USER</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="form-group row">
-                        <label for="Namabarang" class="col-sm-5 col-form-label nb">Nama</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="nama_bar">
+            <form action="<?php echo base_url('Data_user') ?>" method="POST">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group row">
+                            <label for="Namabarang" class="col-sm-5 col-form-label nb">Nama</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="nama" name="nama">
+                                <?php echo form_error('nama', '<small class="text-danger">', '</small>'); ?>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Namabarang" class="col-sm-5 col-form-label nb">Tanggal lahir</label>
+                            <div class="col-sm-6">
+                                <input type="date" id="date" name="tl"> <br>
+                                <?php echo form_error('tl', '<small class="text-danger">', '</small>'); ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="Namabarang" class="col-sm-5 col-form-label nb">Tanggal lahir</label>
-                        <div class="col-sm-6">
-                            <input type="date" id="date" name="date">
+                    <div class="col-lg-6">
+                        <div class="form-group row">
+                            <label for="Namabarang" class="col-sm-5 col-form-label nb">password</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" id="passwordd" name="passwordd">
+                                <?php echo form_error('passwordd', '<small class="text-danger">', '</small>'); ?>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Namabarang" class="col-sm-5 col-form-label nb">Level</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="level">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="form-group row">
-                        <label for="Namabarang" class="col-sm-5 col-form-label nb">password</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="nama_bar">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="Namabarang" class="col-sm-5 col-form-label nb">Level</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="nama_bar">
-                        </div>
+                <div class="row">
+                    <div class="col justify-content-end">
+                        <button type="submit" class="btn btn-primary btn-brng-1">Save</button>
+                        <a href="<?php echo base_url('master') ?>">
+                            <button type="button" class="btn btn-danger btn-brng-2">Exit</button>
+                        </a>
+                        <?php echo $this->session->flashdata('message'); ?>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col justify-content-end">
-                    <button type="button" class="btn btn-primary btn-brng-1">Save</button>
-                    <a href="<?php echo base_url('master') ?>">
-                        <button type="button" class="btn btn-danger btn-brng-2">Exit</button>
-                    </a>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <section class="data-user1">
@@ -58,40 +70,19 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Password</th>
                                         <th>Level</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>admin</td>
-                                        <td>2-12-2020</td>
-                                        <td>albariqn</td>
-                                        <td>Karyawan</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>admin</td>
-                                        <td>2-12-2020</td>
-                                        <td>albariqn</td>
-                                        <td>Karyawan</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>admin</td>
-                                        <td>2-12-2020</td>
-                                        <td>albariqn</td>
-                                        <td>Karyawan</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>admin</td>
-                                        <td>2-12-2020</td>
-                                        <td>albariqn</td>
-                                        <td>Karyawan</td>
-                                    </tr>
+                                    <?php $no = 1 ?>
+                                    <?php foreach ($tb_user as $user) : ?>
+                                        <tr>
+                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo $user['Nama'] ?></td>
+                                            <td><?php echo $user['tanggal_lahir'] ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
