@@ -249,7 +249,7 @@
 }
 
 .stock-barang {
-	height: 300px;
+	height: 365px;
 	overflow: scroll;
 }
 
@@ -346,8 +346,13 @@
 
 /* data user */
 
-.data-userrr {
-	height: 380px;
+/* .tablell {
+	height: 500px;
+	overflow: scroll;
+} */
+
+.data-userr1 {
+	height: 345px;
 	overflow: scroll;
 
 }

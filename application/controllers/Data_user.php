@@ -14,10 +14,12 @@ class Data_user extends CI_Controller
     {
         $data['judul'] = 'User';
         $data['tb_user'] = $this->Data_user_model->getAlltb_pegawai();
+        $data['level'] = ['ADMIN', 'PEMILIK', 'KARYAWAN', 'MANAGER'];
 
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('tl', 'tanggal lahir', 'required');
         $this->form_validation->set_rules('passwordd', 'Password', 'required|trim|min_length[3]');
+        $this->form_validation->set_rules('level', 'level', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
@@ -28,6 +30,7 @@ class Data_user extends CI_Controller
                 'Nama'          => $this->input->post('nama'),
                 'tanggal_lahir' => $this->input->post('tl'),
                 'Password'      => password_hash($this->input->post('passwordd'), PASSWORD_DEFAULT),
+                'level'      => $this->input->post('level'),
                 'date_create'   => time()
             ];
 
@@ -37,5 +40,12 @@ class Data_user extends CI_Controller
                 </div>');
             redirect('Data_user');
         }
+    }
+    public function hapus($id)
+    {
+
+        $this->Data_user_model->hapus_data_user($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('Data_user');
     }
 }

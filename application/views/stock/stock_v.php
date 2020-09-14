@@ -6,33 +6,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <div class="form-group row">
-                    <label for="Namabarang" class="col-sm-2 col-form-label nb">Nama barang</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nama_bar">
+            <div class="col-lg-12 justify-content-center mt-5">
+                <form action="" method="POST">
+                    <div class="input-group">
+                        <input type="text" class="form-control float-right" placeholder="Cari Data Barang..." name="keyword" style="height: 50px;">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Cari</button>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="Barcode" class="col-sm-2 col-form-label barcode">Barcode</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nama_bar">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="Namabarang" class="col-sm-2 col-form-label cat">Category</label>
-                    <div class="col-sm-10">
-                        <select class="form-control form-control-sm">
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                        </select>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="row text-right">
-            <div class="col m-2">
+            <div class="col m-2 mt-5">
                 <button type="button" class="btn btn-primary">SIMPAN</button>
                 <a href="<?php echo base_url('Dashboard') ?>">
                     <button type="button" class="btn btn-danger">EXIT</button>
