@@ -8,11 +8,12 @@
              </div>
              <div class="row">
                  <div class="col-lg-12 m-4 justify-content-center">
-                     <form action="<?php echo base_url('Data_category') ?>" method="POST">
+                     <form action="" method="POST">
+                         <input type="hidden" name="id" value="<?php echo $tb_catagory['id']; ?>">
                          <div class="form-group row">
                              <label for="Namabarang" class="col-sm-4 col-form-label nb">Catagory</label>
                              <div class="col-sm-6">
-                                 <input type="text" class="form-control" id="category" name="category">
+                                 <input type="text" class="form-control" id="category" name="category" value="<?php echo $tb_catagory['catagory'] ?>">
                                  <small class="form-text text-danger"><?php echo form_error('category') ?></small>
                              </div>
                          </div>
@@ -26,8 +27,10 @@
                          <?php endif; ?>
                  </div>
              </div>
-             <div class="row ">
+             <div class="row justify-content-end">
                  <div class="col-lg-5">
+                     <button type="button" class="btn btn-primary btn-brng-1">Update</button>
+                     <button type="button" class="btn btn-primary btn-brng-1">Hapus</button>
                      <button type="submit" class="btn btn-primary btn-brng-1">Simpan</button>
                      <a href="<?php echo base_url('master') ?>">
                          <button type="button" class="btn btn-danger btn-brng-2">Exit</button>
@@ -53,7 +56,7 @@
                                  </thead>
                                  <tbody>
                                      <?php $no = 1 ?>
-                                     <?php foreach ($tb_catagory as $catagory) : ?>
+                                     <?php foreach ($catagory as $catagory) : ?>
                                          <tr>
                                              <td><?php echo $no++ ?></td>
                                              <td><?php echo $catagory['catagory']; ?></td>

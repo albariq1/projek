@@ -7,6 +7,7 @@ class Data_barang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Data_barang_model');
+        $this->load->model('Data_category_model');
         $this->load->library('form_validation');
     }
 
@@ -14,6 +15,7 @@ class Data_barang extends CI_Controller
     {
         $data['judul'] = 'Data Barang';
         $data['tb_barang'] = $this->Data_barang_model->getAlltb_barang();
+        $data['tb_category'] = $this->Data_category_model->getAlltb_category();
         if ($this->input->post('keyword')) {
             $data['tb_barang'] = $this->Data_barang_model->cari_data_barang();
         }
@@ -27,6 +29,7 @@ class Data_barang extends CI_Controller
 
         $data['judul'] = 'tambah data';
         $data['tb_barang'] = $this->Data_barang_model->getAlltb_barang();
+        $data['tb_catagory'] = $this->Data_category_model->getAlltb_category();
 
         $this->form_validation->set_rules('barcode', 'Barcode', 'required|numeric');
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
@@ -58,7 +61,7 @@ class Data_barang extends CI_Controller
 
         $data['judul'] = 'ubah data';
         $data['tb_barang'] = $this->Data_barang_model->get_data_barang($id);
-
+        $data['tb_catagory'] = $this->Data_category_model->getAlltb_category();
         $this->form_validation->set_rules('barcode', 'Barcode', 'required|numeric');
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
         $this->form_validation->set_rules('stock', 'Stock', 'required|numeric');

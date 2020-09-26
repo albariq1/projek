@@ -65,7 +65,7 @@
                                              <td><?php echo $barang['harga_jual']; ?></td>
                                              <td>10</td>
                                              <td>5</td>
-                                             <td>Makanan</td>
+                                             <td><?php echo $barang['catagory'] ?></td>
                                              <td>10</td>
                                              <td><a href="<?php echo base_url(); ?>data_barang/hapus/<?php echo $barang['id'] ?>" class="badge badge-danger" onclick="return confirm('yakin?')">hapus</a>
                                                  <a href="<?php echo base_url(); ?>data_barang/ubah/<?php echo $barang['id'] ?>" class="badge badge-success" onclick="return confirm('yakin?')">Ubah</a>

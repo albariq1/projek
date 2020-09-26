@@ -27,11 +27,9 @@
                         <label for="Namabarang" class="col-sm-5 col-form-label nb" style="color:white;">Catagory</label>
                         <div class="col-sm-6">
                             <select class="form-control" id="catagory" name="catagory" name="catagory">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <?php foreach ($tb_catagory as $cg) : ?>
+                                    <option value="<?php echo $cg['id']; ?>"><?php echo $cg['catagory']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
