@@ -62,7 +62,7 @@
                     <h4>
                         Total
                     </h4>
-                    <h3><span id="totalbl"></span></h3>
+                    <h3><span id="totalbl"><?php echo number_format($jumlah['total_harga']) ?></span></h3>
                 </div>
             </div>
         </div>
@@ -109,13 +109,67 @@
                 <div class="col-lg-3">
                     <p>User : Admin</p>
                 </div>
+                <!-- modal -->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Selesai
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group row">
+                                    <form action="<?php echo base_url('kasir/checkout') ?>" method="POST">
+                                        <div class="col">
+                                            <label for=""><b>Total Harga</b></label>
+                                            <input type="text" class="form-control" name="total_harga" id="total_harga" readonly value="<?php echo $jumlah['total_harga'] ?>" required>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for=""><b>Total Bayar</b></label>
+                                        <input type="text" class="form-control" id="total_bayar" name="total_bayar" onkeyup="sum();" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for=""><b>Kembalian</b></label>
+                                        <input type="text" class="form-control" id="kembalian" name="kembalian" readonly required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <?php foreach ($list_keranjang as $jual) : ?>
+                                        <tr>
+                                            <input type="hidden" name="id_barang[]" value="<?php echo $jual['id_barang'] ?>">
+                                            <input type="hidden" name="id_pegewai[]" value="<?php echo $jual['id_pegawai'] ?>">
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal selesai -->
                 <a href="<?php echo base_url('Dashboard') ?>">
                     <button type="button" class="btn btn-danger button-exit">EXIT</button>
                 </a>
             </div>
         </div>
     </section>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(function() {
             var grandtotal = 0;
             $("[id*=hasil_indeks]").each(function() {
@@ -123,4 +177,16 @@
             });
             $("[id*=totalbl]").html(+grandtotal.toString());
         });
+    </script> -->
+
+    <!-- js -->
+    <script>
+        function sum() {
+            var txtFirstNumberValue = document.getElementById('total_bayar').value;
+            var txtSecondNumberValue = document.getElementById('total_harga').value;
+            var result = parseInt(txtFirstNumberValue) - parseInt(txtSecondNumberValue);
+            if (!isNaN(result)) {
+                document.getElementById('kembalian').value = result;
+            }
+        }
     </script>

@@ -32,7 +32,8 @@ class Login extends CI_Controller
             if (password_verify($password, $user['Password'])) {
                 $data = [
                     'username' => $user['nama'],
-                    'level' => $user['level']
+                    'level' => $user['level'],
+                    'id_pegawai' => $user['id']
                 ];
                 $this->session->set_userdata($data);
                 redirect('Dashboard');
@@ -44,5 +45,12 @@ class Login extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username Salah</div>');
             redirect('Login');
         }
+    }
+    public function logout()
+    {
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('level');
+        $this->session->unset_userdata('id_pegawai');
+        redirect('login');
     }
 }

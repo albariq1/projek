@@ -27,6 +27,7 @@ class Data_barang_model extends CI_Model
             "harga_beli"  => $this->input->post('harga_beli', true),
             "harga_jual"  => $this->input->post('harga_jual', true),
             "id_catagory"  => $this->input->post('catagory', true),
+            "created_at"  => date('Y-m-d H:i:s'),
         ];
 
         $this->db->insert('tb_barang', $data);
@@ -60,6 +61,7 @@ class Data_barang_model extends CI_Model
             "harga_beli"  => $this->input->post('harga_beli', true),
             "harga_jual"  => $this->input->post('harga_jual', true),
             "id_catagory"    => $this->input->post('catagory', true),
+            "update_at"    => date('Y-m-d H:i:s'),
         ];
 
         $this->db->where('id', $this->input->post('id'));

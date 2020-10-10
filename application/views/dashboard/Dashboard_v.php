@@ -49,7 +49,7 @@
              </a>
          </div>
          <div class="col-lg-2 m-2 ">
-             <a href="<?php echo base_url('Login') ?>">
+             <a href="<?php echo base_url('Login/logout') ?>">
                  <div class="background-logout">
                      <p>
                          <img src="<?php echo base_url('assets/image/logout.png') ?>" alt="" width="100px" height="100px">
