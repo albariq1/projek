@@ -27,6 +27,7 @@
                                                     <th>barcode</th>
                                                     <th>Nama Barang</th>
                                                     <th>Harga</th>
+                                                    <th>Stock</th>
                                                     <th>Qty</th>
                                                     <th>Aksi</th>
                                                 </tr>
@@ -39,9 +40,18 @@
                                                             <td><?php echo $barang['barcode']; ?></td>
                                                             <td><?php echo $barang['nama_barang']; ?></td>
                                                             <td><?php echo $barang['harga_jual']; ?></td>
+                                                            <td><?php echo $barang['stock_awal']; ?></td>
                                                             <input type="hidden" name="harga_jual" value="<?php echo $barang['harga_jual']; ?>">
-                                                            <td><input type="number" name="qty"></td>
-                                                            <td><button class="btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>PILIH</button></td>
+                                                            <?php if ($barang['stock_awal'] < 1) { ?>
+                                                                <td>
+                                                                    <input type="number" name="qty" disabled>
+                                                                </td>
+                                                            <?php } else { ?>
+                                                                <td>
+                                                                    <input type="number" name="qty">
+                                                                </td>
+                                                                <td><button class="btn-primary" type="submit"><i class="fa fa-check" aria-hidden="true"></i>PILIH</button></td>
+                                                            <?php } ?>
                                                         </form>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -107,7 +117,7 @@
                     <p>29-AGUSTUS-2020</p>
                 </div>
                 <div class="col-lg-3">
-                    <p>User : Admin</p>
+                    <p>User : <?php $pegawai['nama'] ?></p>
                 </div>
                 <!-- modal -->
                 <!-- Button trigger modal -->

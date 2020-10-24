@@ -12,6 +12,7 @@ class Kasir extends CI_Controller
     public function index()
     {
         $data['judul'] = 'Kasir';
+        $data['pegawai'] = $this->session->userdata('nama');
         $data['tb_barang'] = $this->Kasir_model->getAlltb_barang();
         $data['list_keranjang'] = $this->Kasir_model->list_keranjang();
         $data['jumlah'] = $this->jumlah();
