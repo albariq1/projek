@@ -16,7 +16,6 @@
     <section class="warna1">
         <div class="container">
             <div class="row justify-content-start ">
-
                 <div class="row justify-content-start">
                     <div class="col-lg-2 btn-4 mr-5">
                         <input type="date" id="date" name="date">
@@ -24,11 +23,11 @@
                     <div class="col-lg-2 ml-5 ">
                         <button type="submit" class="btn btn-primary btn-1">Lihat Laporan</button>
                     </div>
-                    <form action="<?php echo base_url('Laporan/bulan') ?>" method="POST">
-                        <div class="col-lg-2 ml-5">
+                    <div class="col-lg-2 ml-5">
+                        <form action="<?php echo base_url('Laporan') ?>" method="POST">
                             <button type="submit" class="btn btn-primary btn-3" name="bulan">Bulan Ini</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
 
                 <form action="<?php echo base_url() ?>Laporan/karyawan" method="POST">
@@ -36,9 +35,6 @@
                         <div class="col-lg-2 ">
                             <!-- <select class="custom-select" name="nama_karyawan">
                             <option selected>Nama karyawan</option>
-                            <?php foreach ($karyawan as $kry) : ?>
-                                <option value="<?php echo $kry['id'] ?>"><?php echo $kry['Nama'] ?> <?php echo $kry['level'] ?></option>
-                            <?php endforeach; ?>
                         </select> -->
                             <button type="submit" class="btn btn-primary btn-3" name="bulan">Karyawan</button>
                         </div>
@@ -70,21 +66,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($jumlah as $jml) : ?>
-                                <tr>
-                                    <td>2</td>
-                                    <?php if ($tgl == null) { ?>
-                                        <td><?php echo date('d-m-Y') ?></td>
-                                    <?php } else { ?>
-                                        <td><?php echo date('d-m-Y', strtotime($tgl)) ?></td>
-                                    <?php } ?>
-                                    <td>Rp.<?php echo number_format($jml['total_belanja']) ?></td>
-                                    <?php foreach ($modal as $mdl) : ?>
-                                        <td>Rp.<?php echo number_format($mdl['harga_modal']) ?></td>
-                                    <?php endforeach; ?>
-                                    <td>Rp.<?php echo number_format($jml['total_belanja'] - $mdl['harga_modal']) ?></td>
-                                </tr>
-                            <?php endforeach; ?>
+                            <tr>
+                                <td>2</td>
+                                <td>Rp.<?php echo number_format($total_bulan[0]['total_belanja']) ?></td>
+                                <td>Rp.<?php echo number_format($modal_bulan[0]['harga_modal']) ?></td>
+                                <td>Rp.<?php echo number_format($total_bulan[0]['total_belanja'] - $modal_bulan[0]['harga_modal']) ?></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

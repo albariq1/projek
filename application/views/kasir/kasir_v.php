@@ -14,7 +14,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Daftar Barang</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -42,6 +42,7 @@
                                                             <td><?php echo $barang['harga_jual']; ?></td>
                                                             <td><?php echo $barang['stock_awal']; ?></td>
                                                             <input type="hidden" name="harga_jual" value="<?php echo $barang['harga_jual']; ?>">
+                                                            <input type="hidden" name="harga_beli" value="<?php echo $barang['harga_beli']; ?>">
                                                             <?php if ($barang['stock_awal'] < 1) { ?>
                                                                 <td>
                                                                     <input type="number" name="qty" disabled>
@@ -61,7 +62,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>
                         </div>
@@ -114,10 +115,10 @@
             </div>
             <div class="row kasir-bawah justify-content-between">
                 <div class="col-lg-3">
-                    <p>29-AGUSTUS-2020</p>
+                    <p><?php echo date('Y-m-d') ?></p>
                 </div>
                 <div class="col-lg-3">
-                    <p>User : <?php $pegawai['nama'] ?></p>
+                    <p><?php echo $this->session->userdata('Nama'); ?></p>
                 </div>
                 <!-- modal -->
                 <!-- Button trigger modal -->
@@ -160,6 +161,7 @@
                                         <tr>
                                             <input type="hidden" name="id_barang[]" value="<?php echo $jual['id_barang'] ?>">
                                             <input type="hidden" name="id_pegewai[]" value="<?php echo $jual['id_pegawai'] ?>">
+                                            <input type="hidden" name="harga_modal[]" value="<?php echo $jual['harga_beli'] ?>">
                                         </tr>
                                     <?php endforeach; ?>
                                 </div>

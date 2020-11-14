@@ -7,6 +7,11 @@ class Kasir_model extends CI_Model
         return $query = $this->db->get('tb_barang')->result_array();
     }
 
+    public function getAlltb_pegawai()
+    {
+        return $query = $this->db->get('tb_pegawai')->result_array();
+    }
+
     public function list_keranjang()
     {
         // $this->db->get('tb_penjualan_detail')->result_array();
@@ -22,12 +27,16 @@ class Kasir_model extends CI_Model
         $qty = $this->input->post('qty', true);
         $harga = $this->input->post('harga_jual');
         $total_harga = (int)$qty * (int)$harga;
+        $harga_modal = $this->input->post('harga_beli', true);
+        $tanggal_detail = date('Y-m-d');
         $data = [
             "id_barang" => $id_barang,
             "qty" => $this->input->post('qty', true),
             "total_harga" => $total_harga,
             "status" => 'keranjang',
-            "id_pegawai" => $this->session->userdata('id_pegawai')
+            "id_pegawai" => $this->session->userdata('id_pegawai'),
+            "harga_modal" => $harga_modal * $qty,
+            "tanggal_detail" => $tanggal_detail
         ];
         $this->db->insert('tb_penjualan_detail', $data);
     }
@@ -53,11 +62,17 @@ class Kasir_model extends CI_Model
                 "status" => 'checkout',
 
             );
-            // $this->db->update('tb_penjualan_detail', $id_barang[$key], $checkout);
-            // $this->db->where('id_barang', $id_barang[$key]);
-            // $this->db->update('tb_penjualan_detail', $checkout);
-
         }
         $this->db->update_batch('tb_penjualan_detail', $checkout, 'id_barang');
+    }
+    public function struk($random)
+    {
+        // $this->db->select();
+        // $this->db->from('tb_penjualan');
+        // $this->db->join('tb_penjualan_detail', 'tb_penjualan_detail.id_penjualan = tb_penjualan.id_penjualan', 'left');
+        // $this->db->join('tb_penjualan_detail', 'tb_penjualan_detail.id_barang = tb_barang.id', 'left');
+        // return $query = $this->db->get()->result_array();
+
+        return $this->db->query("SELECT * FROM `tb_penjualan_detail` INNER JOIN tb_penjualan on tb_penjualan_detail.id_penjualan = tb_penjualan.id_penjualan INNER JOIN tb_pegawai on tb_pegawai.id = tb_penjualan.id_pegawai INNER JOIN  tb_barang on tb_barang.id = tb_penjualan_detail.id_barang  WHERE tb_penjualan_detail.id_penjualan = '$random'")->result_array();
     }
 }
