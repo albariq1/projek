@@ -43,6 +43,7 @@ class Kasir_model extends CI_Model
     public function checkout()
     {
         $random = random_string('alnum', 15);
+        $id_pegawai = $this->session->userdata('id');
         $data = [
             "id_penjualan" => $random,
             "id_pegawai" => $this->session->userdata('id_pegawai'),
@@ -63,6 +64,7 @@ class Kasir_model extends CI_Model
 
             );
         }
+        $this->db->where('id_pegawai', $id_pegawai);
         $this->db->update_batch('tb_penjualan_detail', $checkout, 'id_barang');
     }
     public function struk($random)

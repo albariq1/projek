@@ -39,16 +39,10 @@
                                 <tr>
                                     <th rowspan="2">Barcode</th>
                                     <th rowspan="2">Nama Barang</th>
-                                    <th rowspan="2">Stock awal</th>
+                                    <th rowspan="2">Stock Sekarang</th>
                                     <th rowspan="2">Harga Beli</th>
                                     <th rowspan="2">Harga Jual</th>
-                                    <th colspan="2">Mutasi</th>
                                     <th rowspan="2">Catagory</th>
-                                    <th rowspan="2">Stock akhir</th>
-                                </tr>
-                                <tr>
-                                    <th>in</th>
-                                    <th>out</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,12 +51,9 @@
                                         <td><?php echo $barang['barcode']; ?></td>
                                         <td><?php echo $barang['nama_barang']; ?></td>
                                         <td><?php echo $barang['stock_awal']; ?></td>
-                                        <td><?php echo $barang['harga_beli']; ?></td>
-                                        <td><?php echo $barang['harga_jual']; ?></td>
-                                        <td>10</td>
-                                        <td>5</td>
-                                        <td>Makanan</td>
-                                        <td>10</td>
+                                        <td><?php echo number_format($barang['harga_beli']); ?></td>
+                                        <td><?php echo number_format($barang['harga_jual']); ?></td>
+                                        <td><?php echo $barang['catagory']; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
 

@@ -29,8 +29,6 @@
              </div>
              <div class="row justify-content-end">
                  <div class="col-lg-5">
-                     <button type="button" class="btn btn-primary btn-brng-1">Update</button>
-                     <button type="button" class="btn btn-primary btn-brng-1">Hapus</button>
                      <button type="submit" class="btn btn-primary btn-brng-1">Simpan</button>
                      <a href="<?php echo base_url('master') ?>">
                          <button type="button" class="btn btn-danger btn-brng-2">Exit</button>

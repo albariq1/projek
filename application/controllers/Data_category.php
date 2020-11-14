@@ -47,4 +47,10 @@ class Data_category extends CI_Controller
             redirect('data_category');
         }
     }
+    public function hapus($id)
+    {
+        $this->Data_category_model->hapus_data_catagory($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('Data_category');
+    }
 }

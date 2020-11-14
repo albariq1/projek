@@ -28,4 +28,10 @@ class Data_category_model extends CI_Model
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('tb_catagory', $data);
     }
+    public function hapus_data_catagory($id)
+    {
+
+        $this->db->where('id', $id);
+        $this->db->delete('tb_catagory');
+    }
 }

@@ -17,16 +17,7 @@
         <form action="<?php echo base_url('Laporan/Karyawan') ?>" method="POST">
             <div class="container">
                 <div class="row justify-content-start ">
-                    <!-- <div class="col-lg-2 btn-4">
-                        <input type="date" id="date" name="date">
-                    </div>
-                    <div class="col-lg-2">
-                        <button type="submit" class="btn btn-primary btn-1">Lihat Laporan</button>
-                    </div>
-                    <div class="col-lg-2">
-                        <button type="submit" class="btn btn-primary btn-3" name="bulan">Bulan Ini</button>
-                    </div> -->
-                    <div class="col-lg-2 ">
+                    <div class="col-lg-2 mt-3">
                         <select class="custom-select" name="nama_karyawan">
                             <option selected>Nama karyawan</option>
                             <?php foreach ($karyawan as $kry) : ?>
@@ -35,7 +26,7 @@
                         </select>
                         <button type="submit" class="btn btn-primary btn-3" name="bulan">Karyawan</button>
                     </div>
-                    <div class="col-lg-2 ml-5">
+                    <div class="col-lg-2 ml-5 mt-2">
                         <a href="<?php echo base_url('Laporan') ?>">
                             <button type="button" class="btn btn-danger btn-ex">Exit</button>
                         </a>
@@ -57,14 +48,12 @@
                                 <th>Total</th>
                                 <th>Modal</th>
                                 <th>Laba</th>
-                                <th>Action</th>
+                                <!-- <th>Action</th> -->
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>2</td>
-
-
+                                <td>1</td>
                                 <td>Rp.<?php echo number_format($total_karyawan[0]['total_belanja']) ?></td>
                                 <td>Rp.<?php echo number_format($modal_karyawan[0]['harga_modal']) ?></td>
                                 <td>Rp.<?php echo number_format($total_karyawan[0]['total_belanja'] - $modal_karyawan[0]['harga_modal']) ?></td>

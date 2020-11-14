@@ -18,14 +18,8 @@
             <div class="row justify-content-start ">
 
                 <div class="row justify-content-start">
-                    <div class="col-lg-2 btn-4 mr-5">
-                        <input type="date" id="date" name="date">
-                    </div>
-                    <div class="col-lg-2 ml-5 ">
-                        <button type="submit" class="btn btn-primary btn-1">Lihat Laporan</button>
-                    </div>
                     <form action="<?php echo base_url('Laporan/bulan') ?>" method="POST">
-                        <div class="col-lg-2 ml-5">
+                        <div class="col-lg-12 m-2">
                             <button type="submit" class="btn btn-primary btn-3" name="bulan">Bulan Ini</button>
                         </div>
                     </form>
@@ -33,16 +27,10 @@
 
                 <form action="<?php echo base_url() ?>Laporan/karyawan" method="POST">
                     <div class="row justify-content-start ">
-                        <div class="col-lg-2 ">
-                            <!-- <select class="custom-select" name="nama_karyawan">
-                            <option selected>Nama karyawan</option>
-                            <?php foreach ($karyawan as $kry) : ?>
-                                <option value="<?php echo $kry['id'] ?>"><?php echo $kry['Nama'] ?> <?php echo $kry['level'] ?></option>
-                            <?php endforeach; ?>
-                        </select> -->
+                        <div class="col-lg-5 m-2 ml-5 ">
                             <button type="submit" class="btn btn-primary btn-3" name="bulan">Karyawan</button>
                         </div>
-                        <div class="col-lg-2 ml-5">
+                        <div class="col m-2 ml-3">
                             <a href="<?php echo base_url('Dashboard') ?>">
                                 <button type="button" class="btn btn-danger btn-ex">Exit</button>
                             </a>
@@ -72,7 +60,7 @@
                         <tbody>
                             <?php foreach ($jumlah as $jml) : ?>
                                 <tr>
-                                    <td>2</td>
+                                    <td>1</td>
                                     <?php if ($tgl == null) { ?>
                                         <td><?php echo date('d-m-Y') ?></td>
                                     <?php } else { ?>

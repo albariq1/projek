@@ -73,6 +73,7 @@ class Data_barang_model extends CI_Model
         $keyword = $this->input->post('keyword', true);
         $this->db->like('nama_barang', $keyword);
         $this->db->or_like('barcode', $keyword);
+        $this->db->escape('catagory', $keyword);
         // $this->db->or_like('catagory', $keyword);
         return $this->db->get('tb_barang')->result_array();
     }

@@ -3,9 +3,9 @@
         <div class="container">
             <div class="row justify-content-between kasir-atas">
                 <div class="col-lg-5 background-barcode">
-                    <h4>Barcode</h4>
+                    <h4>tambah barang</h4>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    <button type="button" class="btn btn-warning col-6 mt-5" data-toggle="modal" data-target="#exampleModalLong">
                         Cari Barang
                     </button>
 
@@ -39,7 +39,7 @@
                                                             <input type="hidden" name="id_barang" value="<?php echo $barang['id']; ?>">
                                                             <td><?php echo $barang['barcode']; ?></td>
                                                             <td><?php echo $barang['nama_barang']; ?></td>
-                                                            <td><?php echo $barang['harga_jual']; ?></td>
+                                                            <td><?php echo number_format($barang['harga_jual']); ?></td>
                                                             <td><?php echo $barang['stock_awal']; ?></td>
                                                             <input type="hidden" name="harga_jual" value="<?php echo $barang['harga_jual']; ?>">
                                                             <input type="hidden" name="harga_beli" value="<?php echo $barang['harga_beli']; ?>">
@@ -60,14 +60,9 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Simpan</button>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <input class="form-control form-control-lg fc-atas" type="text" placeholder="Barcode">
                 </div>
                 <div class="col-lg-6 background-total">
                     <h4>
@@ -103,8 +98,8 @@
                                             <td><?php echo $noo++ ?></td>
                                             <td><?php echo $jual['nama_barang'] ?></td>
                                             <td><?php echo $jual['qty'] ?></td>
-                                            <td><?php echo $jual['harga_jual'] ?></td>
-                                            <td id="hasil_indeks<?php echo $no++ ?>" class="hasil_indeks"><?php echo $jual['total_harga'] ?></td>
+                                            <td><?php echo number_format($jual['harga_jual']) ?></td>
+                                            <td id="hasil_indeks<?php echo $no++ ?>" class="hasil_indeks"><?php echo number_format($jual['total_harga']) ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -118,7 +113,7 @@
                     <p><?php echo date('Y-m-d') ?></p>
                 </div>
                 <div class="col-lg-3">
-                    <p><?php echo $this->session->userdata('Nama'); ?></p>
+                    <!-- <p>User :<?php echo ($this->session->userdata('Nama')); ?></p> -->
                 </div>
                 <!-- modal -->
                 <!-- Button trigger modal -->
@@ -131,7 +126,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Proses Check Out</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -168,7 +163,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Check Out</button>
                             </div>
                             </form>
                         </div>

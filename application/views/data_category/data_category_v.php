@@ -59,6 +59,7 @@
                                              <td><?php echo $catagory['catagory']; ?></td>
                                              <td>
                                                  <a href="<?php echo base_url(); ?>data_category/ubah/<?php echo $catagory['id'] ?>" class="badge badge-success" onclick="return confirm('yakin?')">Ubah</a>
+                                                 <a href="<?php echo base_url(); ?>data_category/hapus/<?php echo $catagory['id'] ?>" class="badge badge-danger" onclick="return confirm('yakin?')">Hapus</a>
                                              </td>
                                          </tr>
                                      <?php endforeach; ?>
