@@ -45,7 +45,7 @@
                                          <th rowspan="2">Stock Sekarang</th>
                                          <th rowspan="2">Harga Beli</th>
                                          <th rowspan="2">Harga Jual</th>
-                                         <th rowspan="2">Catagory</th>
+                                         <!-- <th rowspan="2">Catagory</th> -->
                                          <th rowspan="2">Action</th>
                                      </tr>
                                  </thead>
@@ -57,7 +57,7 @@
                                              <td><?php echo $barang['stock_awal']; ?></td>
                                              <td><?php echo number_format($barang['harga_beli']); ?></td>
                                              <td><?php echo number_format($barang['harga_jual']); ?></td>
-                                             <td><?php echo $barang['catagory'] ?></td>
+                                             <!-- <td><?php echo $barang['catagory'] ?></td> -->
                                              <td><a href="<?php echo base_url(); ?>data_barang/hapus/<?php echo $barang['id'] ?>" class="badge badge-danger" onclick="return confirm('yakin?')">hapus</a>
                                                  <a href="<?php echo base_url(); ?>data_barang/ubah/<?php echo $barang['id'] ?>" class="badge badge-success" onclick="return confirm('yakin?')">Ubah</a>
                                              </td>
